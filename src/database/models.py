@@ -10,7 +10,7 @@ Modules Imported:
     - SQLAlchemy modules: Used to define database schema and relationships.
     - WORKDIR: Project's working directory for loading environment configuration.
 """
-
+# pylint: disable=too-few-public-methods
 import os
 from dotenv import load_dotenv
 from sqlalchemy import create_engine, Column, Integer, String, ForeignKey, PrimaryKeyConstraint
@@ -25,10 +25,10 @@ USERNAME = os.getenv("MYSQL_USERNAME")
 PASSWORD = os.getenv("MYSQL_PASSWORD")
 
 # MySQL database connection URL
-db_url_for_mysql = f"mysql+mysqlconnector://{USERNAME}:{PASSWORD}@localhost:3306/company"
+DB_URL_FOR_MYSQL = f"mysql+mysqlconnector://{USERNAME}:{PASSWORD}@localhost:3306/company"
 
 # Initialize SQLAlchemy engine
-engine = create_engine(db_url_for_mysql)
+engine = create_engine(DB_URL_FOR_MYSQL)
 
 # Base class for declarative models
 Base = declarative_base()
@@ -61,7 +61,8 @@ class Employee(Base):
     department = relationship("Department", back_populates="employees")
 
     def __repr__(self):
-        return f"<Employee({self.LastName}, {self.FirstName}, {self.SSN}, {self.Email}, {self.Department_ID})>"
+        return (f"<Employee({self.LastName}, {self.FirstName}, {self.SSN}, {self.Email}, "
+                f"{self.Department_ID})>")
 
 class Department(Base):
     """
@@ -78,7 +79,8 @@ class Department(Base):
     Department_Name = Column(String(20), nullable=False)
     Manager_ID = Column(Integer, ForeignKey("Table_Manager.Manager_ID"), unique=True)
 
-    employees = relationship("Employee", back_populates="department", cascade="all, delete-orphan", uselist=True)
+    employees = relationship("Employee", back_populates="department",
+                             cascade="all, delete-orphan", uselist=True)
     manager = relationship("Manager", back_populates="department", uselist=False)
 
     def __repr__(self):
