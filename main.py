@@ -13,8 +13,10 @@ from src.database.models import Department, Employee, Manager, Budgets, session
 # Creating the HR Department with employees and manager
 department1 = Department(Department_ID=101, Department_Name="HR",
     employees=[
-        Employee(LastName="Popa", FirstName="Ion", SSN="1890812283456", Email="popa.ion@gmail.com"),
-        Employee(LastName="Cirstea", FirstName="Mara", SSN="2021805453216", Email="maria.cirstea@gmail.com")
+        Employee(LastName="Popa", FirstName="Ion", SSN="1890812283456",
+                 Email="popa.ion@gmail.com"),
+        Employee(LastName="Cirstea", FirstName="Mara", SSN="2021805453216",
+                 Email="maria.cirstea@gmail.com")
     ],
     manager=Manager(Manager_ID=100, LastName="Chivu", FirstName="Sorina",
         budget=[
@@ -26,7 +28,8 @@ department1 = Department(Department_ID=101, Department_Name="HR",
 # Creating the Testing Department with employees and manager
 department2 = Department(Department_ID=102, Department_Name="Testing",
     employees=[
-        Employee(LastName="Dinu", FirstName="Cristian", SSN="1910610455632", Email="dinu.cristian@gmail.com")
+        Employee(LastName="Dinu", FirstName="Cristian", SSN="1910610455632",
+                 Email="dinu.cristian@gmail.com")
     ],
     manager=Manager(Manager_ID=200, LastName="Pruna", FirstName="Ioana",
         budget=[
@@ -38,7 +41,8 @@ department2 = Department(Department_ID=102, Department_Name="Testing",
 # Creating the DevOps Department with employees and manager
 department3 = Department(Department_ID=103, Department_Name="DevOps",
     employees=[
-        Employee(LastName="Vasile", FirstName="Georgiana", SSN="2880721822217", Email="georgiana.vasile@gmail.com")
+        Employee(LastName="Vasile", FirstName="Georgiana", SSN="2880721822217",
+                 Email="georgiana.vasile@gmail.com")
     ],
     manager=Manager(Manager_ID=300, LastName="Streche", FirstName="Bogdan",
         budget=[
