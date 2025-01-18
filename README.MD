@@ -30,7 +30,7 @@ This project is a Python-based solution for managing a company's organizational 
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/yourusername/company-database.git
+   git clone https://github.com/cKryn/employee-management-system.git
    cd company-database
    ```
 
